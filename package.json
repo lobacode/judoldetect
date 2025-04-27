@@ -1,0 +1,9 @@
+{
+  "name": "judoldetect",
+  "version": "1.0.0",
+  "description": "Detek promosi judol",
+  "main": "index.js",
+  "repository": "https://github.com/lobacode/judoldetect.git",
+  "license": "MIT",
+  "type": "module"
+}
