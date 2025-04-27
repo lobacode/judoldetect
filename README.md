@@ -1,0 +1,2 @@
+# judoldetect
+Detek promosi judol
