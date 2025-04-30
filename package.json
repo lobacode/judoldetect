@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "https://github.com/lobacode/judoldetect.git",
   "license": "MIT",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "grapheme-splitter": "^1.0.4"
+  }
 }

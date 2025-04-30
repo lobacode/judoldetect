@@ -10,3 +10,7 @@ slot
 jp
 jepe
 toto
+maxwin
+makswin
+mekswin
+dewadora

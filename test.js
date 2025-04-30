@@ -1,4 +1,4 @@
-import containsJudol, { normalizeText } from "./index.js";
+import containsJudol from "./index.js";
 import fs from "node:fs";
 
 const bannedWords = fs.readFileSync("./ban.txt").toLocaleString().trim().split("\n");
@@ -8,7 +8,7 @@ fs.readFile("./comments.txt", (err, data) => {
 
   for (let i=0;i<comments.length;i++) {
     const comment = comments[i];
-    const result = containsJudol(normalizeText(comment), bannedWords);
+    const result = containsJudol(comment, bannedWords);
     console.log(`[${result ? `❌ Dilarang karena terdapat ${result}` : "✅ Aman"}] ${comment}`);
   }
 });
