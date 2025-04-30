@@ -65,21 +65,19 @@ const replaceFancyLetters = (text) => {
     .join('');
 };
 
-const normalizeText = (text) => {
-  // Normalisasi unicode NFKC supaya angka aneh jadi normal
-  let normalized = text.normalize("NFKC");
-
-  // Normalisasi fancy dan emoji karakter
-  normalized = replaceFancyLetters(normalized);
-  
-  // Hapus semua selain huruf dan angka
-  normalized = normalized.replace(/[^\p{L}\p{N}]/gu, '');
-  
-  return normalized.toLowerCase();
+const sanitizeText = (text) => {
+  return replaceFancyLetters(
+    text
+      .normalize('NFKC')                      // Normalisasi bentuk ke "Compatibility"
+      .normalize('NFKD')                      // Pisahkan marks
+      .replace(/[\u0300-\u036F]/g, '')        // Hilangkan diacritic/combining marks
+      .replace(/[\u200B-\u200D\uFEFF]/g, '')  // Hilangkan zero-width dan sejenisnya
+  ).replace(/[^\p{L}\p{N}]/gu, '')            // Hilangkan simbol selain huruf dan angka
+   .toLowerCase();                            // Kecilkan huruf
 };
 
 const containsJudol = (text, bannedWords) => {
-  const normalizedText = normalizeText(text);
+  const normalizedText = sanitizeText(text);
   for (const word of bannedWords) {
     if (normalizedText.includes(word)) {
       return word;
