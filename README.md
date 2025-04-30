@@ -10,3 +10,4 @@ Proyek ini menggabungkan normalisasi karakter Unicode dan penghapusan karakter s
 
 * **Deteksi Kata Terlarang:** Memungkinkan pengecekan apakah teks mengandung kata-kata terlarang yang telah didefinisikan sebelumnya.
 
+![screenshot](image.png)
